@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  avantioAPIHost: 'https://challenge.avantio.pro',
-  avantioAPIAuthToken: '',
+  avantioAPIHost: process.env['NG_APP_AVANTIO_API_HOST'],
+  avantioAPIAuthToken: process.env['NG_APP_AVANTIO_API_TOKEN'],
 };
