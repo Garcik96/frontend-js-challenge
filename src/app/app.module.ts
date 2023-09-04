@@ -32,7 +32,7 @@ registerLocaleData(localeEs, 'es');
     AppMenuModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }, httpInterceptorProviders],
   bootstrap: [AppComponent],

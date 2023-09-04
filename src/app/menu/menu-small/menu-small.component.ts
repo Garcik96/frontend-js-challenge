@@ -12,9 +12,10 @@ import { Component } from '@angular/core';
         paths: 'exact',
         fragment: 'exact'
       }"
-      class="menu__option"
-    >
-      <img src="assets/Iconos/Favicon/favicon_el_pais.svg" alt="Icono de EL PAÍS" />
+      class="menu__option">
+      <img
+        src="assets/Iconos/Favicon/favicon_el_pais.svg"
+        alt="Icono de EL PAÍS" />
     </a>
     <a
       [routerLink]="['/trends', { provider: 'elmundo' }]"
@@ -25,9 +26,10 @@ import { Component } from '@angular/core';
         paths: 'exact',
         fragment: 'exact'
       }"
-      class="menu__option"
-    >
-      <img src="assets/Iconos/Favicon/favicon_el_mundo.svg" alt="Icono de EL MUNDO" />
+      class="menu__option">
+      <img
+        src="assets/Iconos/Favicon/favicon_el_mundo.svg"
+        alt="Icono de EL MUNDO" />
     </a>
   `,
   styleUrls: ['./menu-small.component.scss'],

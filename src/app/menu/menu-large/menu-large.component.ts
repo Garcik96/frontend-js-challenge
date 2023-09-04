@@ -26,8 +26,7 @@ import { selectTrendsTotal } from 'src/app/trends/store/selectors';
         paths: 'exact',
         fragment: 'exact'
       }"
-      class="menu__option"
-    >
+      class="menu__option">
       <img src="assets/Logos/El_Pais.svg" alt="Logo de EL PAÍS" />
     </a>
 
@@ -40,8 +39,7 @@ import { selectTrendsTotal } from 'src/app/trends/store/selectors';
         paths: 'exact',
         fragment: 'exact'
       }"
-      class="menu__option"
-    >
+      class="menu__option">
       <img src="assets/Logos/El_Mundo.svg" alt="Logo de EL MUNDO" />
     </a>
 

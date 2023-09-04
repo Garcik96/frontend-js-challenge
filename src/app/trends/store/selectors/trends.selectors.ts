@@ -28,7 +28,7 @@ export const selectTrendsByProvider = createSelector(
   selectAllTrends,
   selectRouteParams,
   (trends, { provider }) =>
-    provider ? trends.filter((trend) => trend.provider === provider) : trends
+    provider ? trends.filter(trend => trend.provider === provider) : trends
 );
 
 export const selectTrendsTotal = createSelector(

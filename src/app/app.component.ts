@@ -10,16 +10,14 @@ import { selectIsLoadingState } from './store/selectors';
   template: `
     <app-progress-bar
       *ngIf="isLoading$ | async"
-      class="app-progress-bar"
-    ></app-progress-bar>
+      class="app-progress-bar"></app-progress-bar>
     <header class="app-header">
       <a routerLink="/">
         <img
           *ngIf="isSmallScreen$ | async"
           class="app-logo"
           src="assets/Logos/aTrendsPRO.svg"
-          alt="Logo Avantio Trends PRO"
-        />
+          alt="Logo Avantio Trends PRO" />
       </a>
       <div class="app-current-date">
         <span>{{ currentDate | date: 'dd MMMM yyyy' }}</span>

@@ -21,7 +21,7 @@ export const trendsReducer = createReducer(
   on(TrendsApiActions.loadTrendsSuccess, (state, { trends }) => {
     return adapter.setAll(trends, state);
   }),
-  on(TrendsApiActions.loadTrendsError, (state) => {
+  on(TrendsApiActions.loadTrendsError, state => {
     return adapter.removeAll(state);
   }),
   on(

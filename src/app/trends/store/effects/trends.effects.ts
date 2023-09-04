@@ -15,7 +15,7 @@ export class TrendsEffects {
       ofType(TrendsListPageActions.loadTrends),
       mergeMap(() =>
         this.trendService.getAll().pipe(
-          map((trends) => TrendsApiActions.loadTrendsSuccess({ trends })),
+          map(trends => TrendsApiActions.loadTrendsSuccess({ trends })),
           catchError(() => of(TrendsApiActions.loadTrendsError()))
         )
       )
@@ -29,12 +29,15 @@ export class TrendsEffects {
       map(({ payload }) => payload.routerState.root.firstChild?.params['id']),
       switchMap((id: string) =>
         this.trendService.getOne(id).pipe(
-          map((trend) => TrendsApiActions.loadOneTrendSuccess({ trend })),
+          map(trend => TrendsApiActions.loadOneTrendSuccess({ trend })),
           catchError(() => of(TrendsApiActions.loadOneTrendError()))
         )
       )
     );
   });
 
-  constructor(private actions$: Actions, private trendService: TrendService) {}
+  constructor(
+    private actions$: Actions,
+    private trendService: TrendService
+  ) {}
 }
