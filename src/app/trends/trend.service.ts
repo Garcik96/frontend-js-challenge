@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 import { GetAllTrendsResponse } from './models/get-all-trends-response.model';
 import { GetOneTrendResponse } from './models/get-one-trend-response.model';
@@ -11,9 +11,10 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class TrendService {
-  private readonly urlBase = environment.avantioAPIHost;
-
-  public readonly getAllUrl = `${this.urlBase}/v1/trends`;
+  private readonly urlBase = environment.production
+    ? environment.avantioAPIHost
+    : '';
+  private readonly getAllUrl = `${this.urlBase}/v1/trends`;
 
   constructor(private httpClient: HttpClient) {}
 
