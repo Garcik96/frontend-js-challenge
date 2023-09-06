@@ -8,12 +8,12 @@
   gap: 2rem;
 }
 
-.app-progress-bar {
+.app__progress-bar {
   position: fixed;
   top: 0;
 }
 
-.app-header {
+.app__header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -21,7 +21,7 @@
   align-items: center;
 }
 
-.app-navigation {
+.app__navigation {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -30,13 +30,13 @@
   z-index: 1;
 }
 
-.app-main-content {
+.app__main-content {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   overflow-y: auto;
 }
 
-.app-logo {
+.app__logo {
   width: 6.25rem;
 
   &:active {
@@ -44,7 +44,7 @@
   }
 }
 
-.app-current-date {
+.app__current-date {
   flex: 0 0 10rem;
   height: 3.75rem;
   background-color: $accent;
@@ -70,24 +70,24 @@
     height: 100vh;
   }
 
-  .app-navigation {
+  .app__navigation {
     position: initial;
     grid-area: navigation;
   }
 
-  .app-header {
+  .app__header {
     grid-area: header;
   }
 
-  .app-main-content {
+  .app__main-content {
     grid-area: main;
   }
 
-  .app-header {
+  .app__header {
     justify-content: flex-end;
   }
 
-  .app-current-date {
+  .app__current-date {
     flex: 0 0 18.125rem;
     height: 4.125rem;
     font-size: 0.875rem;

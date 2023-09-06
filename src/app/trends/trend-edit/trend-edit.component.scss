@@ -1,0 +1,25 @@
+@import '/src/styles/settings/variables';
+
+.trend-header {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.875rem;
+  }
+
+  &__title {
+    font-size: 1.125rem;
+    color: $font-color-dark;
+    margin: 0;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+
+    .app-button:last-child {
+      width: 7rem;
+    }
+  }
+}

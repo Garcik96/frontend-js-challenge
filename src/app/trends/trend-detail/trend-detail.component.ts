@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
+import { updateSidebarState } from 'src/app/store/actions/sidebar.actions';
+import { deleteTrend } from '../store/actions/trend-edit-page.actions';
 import { selectSelectedTrend } from '../store/selectors';
 
 @Component({
@@ -13,10 +15,16 @@ import { selectSelectedTrend } from '../store/selectors';
     <article class="trend__detail" *ngIf="trend$ | async as trend">
       <header class="trend__header">
         <div class="trend__actions">
-          <button type="button" class="trend__action" (click)="editTrend()">
+          <button
+            type="button"
+            class="app-button app-button--primary-light"
+            (click)="editTrend()">
             <img src="assets/Iconos/Actions/edit.svg" alt="Editar noticia" />
           </button>
-          <button type="button" class="trend__action" (click)="deleteTrend()">
+          <button
+            type="button"
+            class="app-button app-button--primary-light"
+            (click)="deleteTrend(trend.id)">
             <img src="assets/Iconos/Actions/delete.svg" alt="Borrar noticia" />
           </button>
         </div>
@@ -44,10 +52,11 @@ export class TrendDetailComponent {
   constructor(private store: Store) {}
 
   public editTrend(): void {
-    // TODO
+    this.store.dispatch(updateSidebarState({ isOpen: true }));
   }
 
-  public deleteTrend(): void {
-    // TODO
+  public deleteTrend(trendIdToDelete: string): void {
+    console.log(trendIdToDelete);
+    this.store.dispatch(deleteTrend({ trendIdToDelete }));
   }
 }

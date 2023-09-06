@@ -10,6 +10,6 @@
         <mask id="mask-2" fill="white">
             <use xlink:href="#path-1"></use>
         </mask>
-        <use id="Combined-Shape" fill="#000000" fill-rule="nonzero" transform="translate(16.488318, 16.488318) rotate(-315.000000) translate(-16.488318, -16.488318) " xlink:href="#path-1"></use>
+        <use id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero" transform="translate(16.488318, 16.488318) rotate(-315.000000) translate(-16.488318, -16.488318) " xlink:href="#path-1"></use>
     </g>
 </svg>

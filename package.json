@@ -26,6 +26,7 @@
     "@ngrx/entity": "^14.3.3",
     "@ngrx/router-store": "^14.3.3",
     "@ngrx/store": "^14.3.3",
+    "primeng": "^14.2.3",
     "rxjs": "~7.5.7",
     "tslib": "^2.5.2",
     "zone.js": "~0.11.8"

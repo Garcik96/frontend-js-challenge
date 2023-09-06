@@ -7,13 +7,14 @@ import { StoreModule } from '@ngrx/store';
 import { AppTrendsRoutingModule } from './app-trends-routing.module';
 import { AuthInterceptor } from './auth-interceptor';
 import { TrendDetailComponent } from './trend-detail/trend-detail.component';
+import { TrendEditComponent } from './trend-edit/trend-edit.component';
 import { TrendService } from './trend.service';
 import { TrendsListComponent } from './trends-list/trends-list.component';
 import { trendsEffects } from './store/effects';
 import { trendsFeatureKey, trendsReducer } from './store/reducers';
 
 @NgModule({
-  declarations: [TrendsListComponent, TrendDetailComponent],
+  declarations: [TrendsListComponent, TrendDetailComponent, TrendEditComponent],
   imports: [
     CommonModule,
     AppTrendsRoutingModule,
@@ -21,7 +22,7 @@ import { trendsFeatureKey, trendsReducer } from './store/reducers';
     StoreModule.forFeature(trendsFeatureKey, trendsReducer),
     EffectsModule.forFeature(trendsEffects),
   ],
-  exports: [TrendsListComponent],
+  exports: [TrendsListComponent, TrendEditComponent],
   providers: [
     TrendService,
     {

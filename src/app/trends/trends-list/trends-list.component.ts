@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { loadTrends } from '../store/actions/trends-list-page.actions';
+import { updateSidebarState } from 'src/app/store/actions/sidebar.actions';
 import { selectTrendsByProvider } from '../store/selectors';
 
 @Component({
@@ -18,6 +19,11 @@ import { selectTrendsByProvider } from '../store/selectors';
         <p class="trend__excerpt">{{ trend.body[0] }}</p>
       </a>
     </article>
+    <button
+      class="app-button app-button--primary app-button--floating"
+      (click)="openCreateTrendSidebar()">
+      <img src="assets/Iconos/Actions/add.svg" alt="Añadir noticia" />
+    </button>
   `,
   styleUrls: ['./trends-list.component.scss'],
 })
@@ -28,5 +34,9 @@ export class TrendsListComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadTrends());
+  }
+
+  public openCreateTrendSidebar(): void {
+    this.store.dispatch(updateSidebarState({ isOpen: true }));
   }
 }

@@ -43,13 +43,56 @@ p {
     transform: scale(0.95);
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &.app-button--primary {
     color: $font-color-light;
     background-color: $primary;
+
+    &:hover {
+      background-color: $primary-accent;
+    }
+  }
+
+  &.app-button--primary-light {
+    color: $font-color-light;
+    background-color: $primary-light;
+
+    &:hover {
+      background-color: $primary;
+
+      img {
+        filter: brightness(100);
+      }
+    }
+
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 2rem;
+    border: none;
   }
 
   &.app-button--secondary {
     color: $font-color-secondary;
     background-color: transparent;
+
+    &:hover {
+      color: $font-color-dark;
+    }
+  }
+
+  &.app-button--floating {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 4.5rem;
+    filter: drop-shadow(0px 6px 20px rgba(241, 95, 65, 0.6));
   }
 }
+
+// Sidebar styles
+@import '/src/app/sidebar/sidebar.component.scss';

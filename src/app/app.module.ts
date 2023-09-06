@@ -12,6 +12,7 @@ import { AppPageNotFoundComponent } from './app-page-not-found.component';
 import { AppProgressBarComponent } from './app-progress-bar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppTrendsModule } from './trends';
+import { AppSidebarModule } from './sidebar';
 import { httpInterceptorProviders } from './app-http-interceptors';
 import { reducers } from './store/reducers';
 
@@ -30,6 +31,7 @@ registerLocaleData(localeEs, 'es');
     AppRoutingModule,
     AppLayoutModule,
     AppMenuModule,
+    AppSidebarModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),

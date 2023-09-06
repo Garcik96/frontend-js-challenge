@@ -88,6 +88,26 @@
   }
 }
 
+.trend__button--floating {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+
+  width: 3rem;
+  height: 3rem;
+  background-color: $primary;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  border: none;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: $primary-accent;
+    cursor: pointer;
+  }
+}
+
 @media screen and (max-width: 767px) {
   :host {
     display: block;
