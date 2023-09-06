@@ -1,8 +1,8 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
-import * as TrendsApiActions from '../actions/trends-api.actions';
-import { Trend } from '../../models/trend.model';
+import { Trend } from 'src/app/trends/models/trend.model';
+import * as TrendsApiActions from 'src/app/trends/store/actions/trends-api.actions';
 
 export const trendsFeatureKey = 'trends';
 
@@ -32,6 +32,15 @@ export const trendsReducer = createReducer(
   ),
   on(TrendsApiActions.loadOneTrendError, (state): State => {
     return { ...state, selectedTrend: null };
+  }),
+  on(TrendsApiActions.createTrendSuccess, (state, { newTrend }): State => {
+    return adapter.addOne(newTrend, state);
+  }),
+  on(TrendsApiActions.updateTrendSuccess, (state, { trendToUpdate }): State => {
+    return { ...state, selectedTrend: trendToUpdate };
+  }),
+  on(TrendsApiActions.deleteTrendSuccess, (state, { trendIdToDelete }) => {
+    return adapter.removeOne(trendIdToDelete, state);
   })
 );
 

@@ -1,13 +1,24 @@
-import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
-import { catchError, filter, map, mergeMap, switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Router } from '@angular/router';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { routerNavigationAction } from '@ngrx/router-store';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
+import {
+  catchError,
+  filter,
+  map,
+  mergeMap,
+  switchMap,
+  tap,
+} from 'rxjs/operators';
 
-import * as TrendsApiActions from '../actions/trends-api.actions';
-import * as TrendsListPageActions from '../actions/trends-list-page.actions';
-import * as TrendEditPageActions from '../actions/trend-edit-page.actions';
-import { TrendService } from '../../trend.service';
+import { updateSidebarState } from 'src/app/store/actions/sidebar.actions';
+import * as TrendEditPageActions from 'src/app/trends/store/actions/trend-edit-page.actions';
+import * as TrendsApiActions from 'src/app/trends/store/actions/trends-api.actions';
+import * as TrendsListPageActions from 'src/app/trends/store/actions/trends-list-page.actions';
+
+import { TrendService } from 'src/app/trends/trend.service';
 
 @Injectable()
 export class TrendsEffects {
@@ -41,7 +52,13 @@ export class TrendsEffects {
     return this.actions$.pipe(
       ofType(TrendEditPageActions.createTrend),
       switchMap(({ newTrend }) =>
-        this.trendService.createOne(newTrend).pipe(catchError(() => of()))
+        this.trendService.createOne(newTrend).pipe(
+          map(newTrend => {
+            this.store.dispatch(updateSidebarState({ isOpen: false }));
+            return TrendsApiActions.createTrendSuccess({ newTrend });
+          }),
+          catchError(() => of())
+        )
       )
     );
   });
@@ -53,10 +70,10 @@ export class TrendsEffects {
         this.trendService.updateOne(trendToUpdate).pipe(
           map(hasUpdated =>
             hasUpdated
-              ? TrendsApiActions.loadOneTrendSuccess({ trend: trendToUpdate })
+              ? TrendsApiActions.updateTrendSuccess({ trendToUpdate })
               : { type: 'NO ACTION' }
           ),
-
+          tap(() => this.store.dispatch(updateSidebarState({ isOpen: false }))),
           catchError(() => of())
         )
       )
@@ -67,15 +84,23 @@ export class TrendsEffects {
     return this.actions$.pipe(
       ofType(TrendEditPageActions.deleteTrend),
       switchMap(({ trendIdToDelete }) =>
-        this.trendService
-          .deleteOne(trendIdToDelete)
-          .pipe(catchError(() => of()))
+        this.trendService.deleteOne(trendIdToDelete).pipe(
+          map(hasDeleted =>
+            hasDeleted
+              ? TrendsApiActions.deleteTrendSuccess({ trendIdToDelete })
+              : { type: 'NO ACTION' }
+          ),
+          tap(() => this.router.navigate([''])),
+          catchError(() => of())
+        )
       )
     );
   });
 
   constructor(
     private actions$: Actions,
-    private trendService: TrendService
+    private trendService: TrendService,
+    private store: Store,
+    private router: Router
   ) {}
 }

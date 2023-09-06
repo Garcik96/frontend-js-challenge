@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { Trend } from '../../models/trend.model';
+import { Trend } from 'src/app/trends/models/trend.model';
 
 export const loadTrendsSuccess = createAction(
   '[Trends/API] Load Trends Success',
@@ -16,4 +16,19 @@ export const loadOneTrendSuccess = createAction(
 
 export const loadOneTrendError = createAction(
   '[Trends/API] Load One Trend Error'
+);
+
+export const createTrendSuccess = createAction(
+  '[Trends/API] Create One Trend Success',
+  props<{ newTrend: Trend }>()
+);
+
+export const updateTrendSuccess = createAction(
+  '[Trends/API] Update One Trend Success',
+  props<{ trendToUpdate: Trend }>()
+);
+
+export const deleteTrendSuccess = createAction(
+  '[Trends/API] Delete One Trend Success',
+  props<{ trendIdToDelete: string }>()
 );

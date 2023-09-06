@@ -5,11 +5,13 @@ import { map, Observable } from 'rxjs';
 import { DeleteTrendResponse } from './models/delete-trend-response.model';
 import { GetAllTrendsResponse } from './models/get-all-trends-response.model';
 import { GetOneTrendResponse } from './models/get-one-trend-response.model';
-import { Trend } from './models/trend.model';
+import { NewTrend } from './models/new-trend.model';
 import { TrendProvider } from './models/trend-provider.model';
 import { TrendResponse } from './models/trend-response.model';
+import { Trend } from './models/trend.model';
 import { UpdateTrendRequest } from './models/update-trend-request.model';
 import { UpdateTrendResponse } from './models/update-trend-response.model';
+
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -34,20 +36,24 @@ export class TrendService {
       .pipe(map(({ trend }) => this.mapToTrendModel(trend)));
   }
 
-  public createOne(trend: Trend): Observable<any> {
-    return this.httpClient.post<GetOneTrendResponse>(this.getAllUrl, trend);
+  public createOne(trend: NewTrend): Observable<Trend> {
+    return this.httpClient
+      .post<GetOneTrendResponse>(this.getAllUrl, trend)
+      .pipe(map(({ trend }) => this.mapToTrendModel(trend)));
   }
 
   public updateOne(trend: Trend): Observable<boolean> {
     const url = `${this.getAllUrl}/${trend.id}`;
     return this.httpClient
       .put<UpdateTrendResponse>(url, this.mapToUpdateTrendRequest(trend))
-      .pipe(map(modified => Boolean(modified)));
+      .pipe(map(response => Boolean(response.modified)));
   }
 
-  public deleteOne(trendIdToDelete: string): Observable<any> {
+  public deleteOne(trendIdToDelete: string): Observable<boolean> {
     const url = `${this.getAllUrl}/${trendIdToDelete}`;
-    return this.httpClient.delete<DeleteTrendResponse>(url);
+    return this.httpClient
+      .delete<DeleteTrendResponse>(url)
+      .pipe(map(response => response.success));
   }
 
   private mapToTrendModel(trendResponse: TrendResponse): Trend {
