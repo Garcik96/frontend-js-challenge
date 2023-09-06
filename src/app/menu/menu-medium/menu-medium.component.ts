@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
     </a>
 
     <a
-      [routerLink]="['/trends', { provider: 'elmundo' }]"
+      [routerLink]="['/trends', { provider: 'elpais' }]"
       routerLinkActive="router-link-active"
       [routerLinkActiveOptions]="{
         matrixParams: 'exact',
@@ -25,7 +25,7 @@ import { Component } from '@angular/core';
     </a>
 
     <a
-      [routerLink]="['/trends', { provider: 'elpais' }]"
+      [routerLink]="['/trends', { provider: 'elmundo' }]"
       routerLinkActive="router-link-active"
       [routerLinkActiveOptions]="{
         matrixParams: 'exact',
