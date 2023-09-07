@@ -28,7 +28,16 @@ import { selectSelectedTrend } from '../store/selectors';
             <img src="assets/Iconos/Actions/delete.svg" alt="Borrar noticia" />
           </button>
         </div>
-        <img class="trend__image" [src]="trend.image" alt="trend.title" />
+        <img
+          *ngIf="trend.image"
+          class="trend__image"
+          [src]="trend.image"
+          alt="trend.title" />
+        <img
+          *ngIf="!trend.image"
+          class="trend__image trend__image--default"
+          src="assets/Logos/avantio.svg"
+          alt="trend.title" />
       </header>
       <div class="trend__content">
         <h2 class="trend__title">

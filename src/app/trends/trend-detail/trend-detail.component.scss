@@ -26,6 +26,10 @@
   padding: 0;
   border: none;
   border-radius: 0.35294117647058826rem;
+
+  &--default {
+    margin-bottom: 2rem;
+  }
 }
 
 .trend__content {
