@@ -91,6 +91,11 @@ p {
     height: 4.5rem;
     border-radius: 4.5rem;
     filter: drop-shadow(0px 6px 20px rgba(241, 95, 65, 0.6));
+
+    @media screen and (max-width: 767px) {
+      right: 1.5rem;
+      bottom: 4.5rem;
+    }
   }
 }
 
