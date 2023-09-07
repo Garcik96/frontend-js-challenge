@@ -9,7 +9,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "prettier:write": "prettier --write \"src/**/*.{ts,html,scss,json}\""
+    "prettier:write": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -40,6 +43,7 @@
     "@angular-eslint/template-parser": "14.3.0",
     "@angular/cli": "~14.2.11",
     "@angular/compiler-cli": "^14.3.0",
+    "@cypress/schematic": "^2.5.0",
     "@ngx-env/builder": "^15.2.1",
     "@types/jasmine": "~4.0.3",
     "@typescript-eslint/eslint-plugin": "5.43.0",
@@ -55,6 +59,7 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "prettier": "^3.0.3",
     "prettier-eslint": "^15.0.1",
-    "typescript": "~4.7.2"
+    "typescript": "~4.7.2",
+    "cypress": "latest"
   }
 }
