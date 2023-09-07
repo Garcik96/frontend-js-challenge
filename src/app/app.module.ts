@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { AppLayoutModule } from './layout';
 import { AppMenuModule } from './menu';
 import { AppPageNotFoundComponent } from './app-page-not-found.component';
-import { AppProgressBarComponent } from './app-progress-bar.component';
+import { AppProgressBarComponent } from './progress-bar/app-progress-bar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppTrendsModule } from './trends';
 import { AppSidebarModule } from './sidebar';
