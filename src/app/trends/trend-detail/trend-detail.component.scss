@@ -76,6 +76,18 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .app-button {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    img {
+      width: 1rem;
+      height: auto;
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
   .trend__detail {
     margin-bottom: 1rem;
