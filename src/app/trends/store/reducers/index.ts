@@ -3,6 +3,7 @@ import { createReducer, on } from '@ngrx/store';
 
 import { Trend } from 'src/app/trends/models/trend.model';
 import * as TrendsApiActions from 'src/app/trends/store/actions/trends-api.actions';
+import { resetSelectedTrend } from '../actions/trends-list-page.actions';
 
 export const trendsFeatureKey = 'trends';
 
@@ -41,6 +42,9 @@ export const trendsReducer = createReducer(
   }),
   on(TrendsApiActions.deleteTrendSuccess, (state, { trendIdToDelete }) => {
     return adapter.removeOne(trendIdToDelete, state);
+  }),
+  on(resetSelectedTrend, (state): State => {
+    return { ...state, selectedTrend: null };
   })
 );
 

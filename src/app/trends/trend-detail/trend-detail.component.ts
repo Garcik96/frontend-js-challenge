@@ -65,7 +65,6 @@ export class TrendDetailComponent {
   }
 
   public deleteTrend(trendIdToDelete: string): void {
-    console.log(trendIdToDelete);
     this.store.dispatch(deleteTrend({ trendIdToDelete }));
   }
 }

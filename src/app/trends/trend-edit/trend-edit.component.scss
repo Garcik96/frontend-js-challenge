@@ -1,25 +1,127 @@
 @import '/src/styles/settings/variables';
 
-.trend-header {
+.trend-edit {
   &__container {
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    margin-top: 1.875rem;
+    align-items: stretch;
   }
 
-  &__title {
-    font-size: 1.125rem;
-    color: $font-color-dark;
-    margin: 0;
+  &-header {
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__title {
+      font-size: 1.125rem;
+      color: $font-color-dark;
+      margin: 0;
+    }
+
+    &__actions {
+      display: flex;
+      gap: 1rem;
+
+      .app-button:last-child {
+        width: 7rem;
+      }
+    }
   }
 
-  &__actions {
-    display: flex;
-    gap: 1rem;
+  &-content {
+    &__container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
 
-    .app-button:last-child {
-      width: 7rem;
+    &__label {
+      color: $font-color-dark;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+
+      &:first-child {
+        margin-top: 1rem;
+      }
+
+      &--error {
+        color: $error !important;
+      }
+    }
+
+    &__input {
+      height: 3rem;
+      border-radius: 0.188rem;
+      border: 0.6px solid $secondary-accent;
+      margin-bottom: 1.5rem;
+      color: $font-color-dark;
+      font-size: 0.875rem;
+      padding-left: 1rem;
+
+      &:focus {
+        outline: none;
+        border-color: $primary;
+      }
+
+      &:hover {
+        border-color: $primary;
+      }
+
+      &--error {
+        border-color: $error;
+      }
+    }
+
+    &__dropdown {
+      height: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    &__textarea {
+      resize: none;
+      flex-grow: 1;
+      border-radius: 0.188rem;
+      border: 0.6px solid $secondary-accent;
+      margin-bottom: 1.5rem;
+      color: $font-color-dark;
+      font-size: 0.875rem;
+      line-height: 1rem;
+      padding: 1rem;
+
+      &:focus {
+        outline: none;
+        border-color: $primary;
+      }
+
+      &:hover {
+        border-color: $primary;
+      }
+
+      &--error {
+        border-color: $error;
+      }
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &-footer {
+    &__container {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 0.5rem;
+
+      button:last-child {
+        width: 100%;
+      }
     }
   }
 }

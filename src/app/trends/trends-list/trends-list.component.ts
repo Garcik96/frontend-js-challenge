@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { loadTrends } from '../store/actions/trends-list-page.actions';
+import {
+  loadTrends,
+  resetSelectedTrend,
+} from '../store/actions/trends-list-page.actions';
 import { updateSidebarState } from 'src/app/store/actions/sidebar.actions';
 import { selectTrendsByProvider } from '../store/selectors';
 
@@ -45,6 +48,7 @@ export class TrendsListComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadTrends());
+    this.store.dispatch(resetSelectedTrend());
   }
 
   public openCreateTrendSidebar(): void {

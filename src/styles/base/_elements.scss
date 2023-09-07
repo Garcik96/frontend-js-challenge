@@ -85,19 +85,59 @@ p {
 
   &.app-button--floating {
     position: absolute;
-    bottom: 3rem;
-    right: 3rem;
-    width: 4.5rem;
-    height: 4.5rem;
+    right: calc(50% - 1.5rem);
+    bottom: 1.5rem;
+    z-index: 1;
+    width: 3rem;
+    height: 3rem;
     border-radius: 4.5rem;
     filter: drop-shadow(0px 6px 20px rgba(241, 95, 65, 0.6));
 
-    @media screen and (max-width: 767px) {
-      right: 1.5rem;
-      bottom: 4.5rem;
+    img {
+      width: 1.5rem;
+      height: auto;
+    }
+
+    @media screen and (min-width: 767px) {
+      width: 4.5rem;
+      height: 4.5rem;
+
+      bottom: 3rem;
+      right: 3rem;
+
+      img {
+        width: unset;
+        height: unset;
+      }
     }
   }
 }
 
 // Sidebar styles
 @import '/src/app/sidebar/sidebar.component.scss';
+
+// Dropdown
+.trend-edit-content__dropdown {
+  .p-dropdown {
+    width: 100%;
+    border: 0.6px solid $secondary-accent;
+    border-radius: 0.188rem;
+
+    &-label {
+      color: $font-color-dark;
+      font-size: 0.875rem;
+      padding-left: 1rem;
+    }
+
+    &:not(.p-disabled) {
+      &:hover {
+        border-color: $primary;
+      }
+
+      &.p-focus {
+        border-color: $primary;
+        box-shadow: none;
+      }
+    }
+  }
+}
