@@ -13,7 +13,7 @@ import { AppProgressBarComponent } from './app-progress-bar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppTrendsModule } from './trends';
 import { AppSidebarModule } from './sidebar';
-import { httpInterceptorProviders } from './app-http-interceptors';
+import { httpInterceptorProviders } from './http-loader-interceptor/app-http-interceptors';
 import { reducers } from './store/reducers';
 
 import localeEs from '@angular/common/locales/es';
