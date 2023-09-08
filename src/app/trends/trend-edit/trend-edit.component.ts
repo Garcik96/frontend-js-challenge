@@ -230,7 +230,7 @@ export class TrendEditComponent implements OnInit, OnDestroy {
     this.trendForm = this.formBuilder.group({
       url: ['', Validators.required],
       title: ['', Validators.required],
-      provider: ['elpais' as TrendProvider, Validators.required],
+      provider: ['', Validators.required],
       image: ['', Validators.required],
       body: ['', Validators.required],
     });
@@ -240,7 +240,7 @@ export class TrendEditComponent implements OnInit, OnDestroy {
     this.trendForm.patchValue({
       url: this.trend?.url,
       title: this.trend?.title,
-      provider: this.trend?.provider,
+      provider: this.trend?.provider ?? 'elpais',
       image: this.trend?.image,
       body: this.trend?.body,
     });
