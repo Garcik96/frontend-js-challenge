@@ -260,7 +260,7 @@ export class TrendEditComponent implements OnInit, OnDestroy {
         trendToUpdate: {
           ...this.trend!,
           ...this.trendForm.value,
-          body: [this.body.value][0],
+          body: [String(this.body.value)],
         },
       })
     );
